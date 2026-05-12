@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <stdexcept>
 #include <fstream>
+#include <filesystem>
 
 #include "shape.h"
 
@@ -21,6 +22,8 @@ class PersistentShapeContainer {
     static_assert(std::is_base_of_v<Shape, T>, "T must derive from Shape");
 
     public:
+        explicit PersistentShapeContainer(
+            std::filesystem::path filepath = "./shape_container.db");
 
         void push_back(T shape);
         void erase(size_t index);
@@ -29,5 +32,6 @@ class PersistentShapeContainer {
         const T& at(size_t index) const;
 
     private:
+        std::filesystem::path filepath_;
         std::vector<T> shapes_;
 };
