@@ -41,3 +41,7 @@ SimpleQuadrilateral::SimpleQuadrilateral(Point2D p1, Point2D p2,
 double SimpleQuadrilateral::area() const {
     return area_;
 }
+
+std::vector<Point2D> SimpleQuadrilateral::points() const {
+	return std::vector<Point2D>{p1_, p2_, p3_, p4_};
+}

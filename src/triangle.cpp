@@ -18,6 +18,7 @@ Triangle::Triangle(Point2D p1, Point2D p2, Point2D p3)
     }
 
     area_ = cross2D(p1_, p2_, p3_) * 0.5;
+    assert(area_ > 0);
 }
 
 double Triangle::area() const {
